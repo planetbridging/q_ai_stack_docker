@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  ubuntu-python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+    command: python3 --version
