@@ -1,10 +1,14 @@
-version: "3"
+version: '3.8'
 
 services:
-  ubuntu-python:
+  snpe-sdk:
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./app:/app
-    command: python3 --version
+      - ./qual:/app/qual
+      - ./models:/app/models
+      - ./output:/app/output
+    ports:
+      - "8000:8000"  # For future web interface
+    command: tail -f /dev/null  # Keep the container running
